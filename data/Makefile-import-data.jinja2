@@ -16,9 +16,6 @@ import-shapefiles.sh: {{ tgt_shapefile_shps }}
 
 shapefiles: shapefiles.tar.gz
 
-shapefiles.tar.gz:
-	wget 'http://s3.amazonaws.com/{{ bucket }}/{{ datestamp }}/shapefiles.tar.gz'
-
 {{ tgt_shapefile_zips }}: shapefiles.tar.gz
 	tar xzf shapefiles.tar.gz
 	touch {{ tgt_shapefile_zips }}
